@@ -22,7 +22,7 @@ To install the g++ compiler for C++ code, run this on terminal:
 	
 Download and Install Qt from [here](https://www.qt.io/download?hsCtaTracking=f24f249b-61fb-4dec-9869-50512342f8d9%7Cf3adf380-4740-4f7e-9e49-d06fa99445fa).
 
-After that, clone thhi Repository:
+After that, clone this Repository:
 
     $ git clone https://github.com/awcasella/Camera-Connection-Qt.git
   
