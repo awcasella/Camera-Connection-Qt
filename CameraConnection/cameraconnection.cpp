@@ -180,12 +180,12 @@ void CameraConnection::imageCaptured(int id, const QImage image){
 void CameraConnection::on_bt_record_clicked(){
     //ui->bt_return->setEnabled(true);
     if(!this->isPlaying){
-        ui->bt_play->setText("Pause");
-        ui->bt_play->setIcon(QIcon(":/imgs/pause.png"));
+        ui->bt_record->setText("Pause");
+        ui->bt_record->setIcon(QIcon(":/imgs/pause.png"));
         this->isPlaying = true;
     }else{
-        ui->bt_play->setText("Play");
-        ui->bt_play->setIcon(QIcon(":/imgs/play.png"));
+        ui->bt_record->setText("Record");
+        ui->bt_record->setIcon(QIcon(":/imgs/play.png"));
         this->isPlaying = false;
     }
 
@@ -193,8 +193,10 @@ void CameraConnection::on_bt_record_clicked(){
 }
 
 void CameraConnection::on_bt_stop_clicked(){
-    //ui->bt_return->setEnabled(false);
-    ui->statusBar->showMessage("Not implemented yet.");
+    ui->bt_record->setText("Record");
+    ui->bt_record->setIcon(QIcon(":/imgs/play.png"));
+    ui->bt_record->setEnabled(true);
+    ui->bt_stop->setEnabled(false);
 }
 
 void CameraConnection::on_rb_photo_clicked(){
@@ -205,7 +207,7 @@ void CameraConnection::on_rb_photo_clicked(){
     ui->bt_capture->setEnabled(true);
 
     ui->rb_video->setChecked(false);
-    ui->bt_play->setEnabled(false);
+    ui->bt_record->setEnabled(false);
     ui->bt_stop->setEnabled(false);
 }
 
@@ -214,7 +216,7 @@ void CameraConnection::on_rb_video_clicked(){
 
     ui->bt_return->setEnabled(false);
 
-    ui->bt_play->setEnabled(true);
+    ui->bt_record->setEnabled(true);
     ui->bt_stop->setEnabled(false);
 
     ui->rb_photo->setChecked(false);
