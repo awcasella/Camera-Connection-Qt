@@ -147,7 +147,7 @@ void CameraConnection::on_bt_capture_clicked(){
 
     imageCapture->setCaptureDestination(QCameraImageCapture::CaptureToBuffer);
 
-    camera->setCaptureMode(QCamera::CaptureStillImage);
+
     camera->start();
     //on half pressed shutter button
     camera->searchAndLock();
@@ -198,6 +198,8 @@ void CameraConnection::on_bt_stop_clicked(){
 }
 
 void CameraConnection::on_rb_photo_clicked(){
+    camera->setCaptureMode(QCamera::CaptureStillImage);
+
     ui->bt_return->setEnabled(false);
 
     ui->bt_capture->setEnabled(true);
@@ -208,6 +210,8 @@ void CameraConnection::on_rb_photo_clicked(){
 }
 
 void CameraConnection::on_rb_video_clicked(){
+    camera->setCaptureMode(QCamera::CaptureVideo);
+
     ui->bt_return->setEnabled(false);
 
     ui->bt_play->setEnabled(true);
