@@ -7,6 +7,7 @@
 #include <QMainWindow>
 #include <QCameraImageCapture>
 #include <QGraphicsScene>
+#include <QMediaRecorder>
 
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
@@ -29,8 +30,10 @@ private:
     QCameraViewfinder *viewFinder;
     QCamera *camera;
     QCameraImageCapture *imageCapture;
+    QMediaRecorder *mediaRecorder;
     QStringList camNames;
 
+    // Look for all the cameras available and display them to the user
     bool checkCameras(void);
     bool isPlaying = false;
 
