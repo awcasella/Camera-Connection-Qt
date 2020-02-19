@@ -96,7 +96,7 @@ void CameraConnection::on_bt_connect_clicked(){
 
         ui->rb_video->setEnabled(true);
         ui->rb_video->setChecked(false);
-        ui->bt_play->setEnabled(false);
+        ui->bt_record->setEnabled(false);
         ui->bt_stop->setEnabled(false);
 
         ui->bt_disconnect->setEnabled(true);
@@ -122,7 +122,7 @@ void CameraConnection::on_bt_disconnect_clicked(){
 
     ui->rb_video->setEnabled(false);
     ui->rb_video->setChecked(false);
-    ui->bt_play->setEnabled(false);
+    ui->bt_record->setEnabled(false);
     ui->bt_stop->setEnabled(false);
 
     ui->bt_return->setEnabled(false);
