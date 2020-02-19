@@ -236,5 +236,6 @@ void CameraConnection::on_rb_video_clicked(){
 }
 
 void CameraConnection::on_bt_return_clicked(){
+    ui->bt_capture->setEnabled(true);
     viewFinder->show();
 }
