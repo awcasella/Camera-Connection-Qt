@@ -79,7 +79,7 @@
      <property name="orientation">
       <enum>Qt::Vertical</enum>
      </property>
-     <widget class="QPushButton" name="bt_play">
+     <widget class="QPushButton" name="bt_record">
       <property name="enabled">
        <bool>false</bool>
       </property>
@@ -242,7 +242,7 @@ background-color: rgb(136, 138, 133);
      <string>Return</string>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>30</x>
