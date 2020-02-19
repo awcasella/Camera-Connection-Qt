@@ -159,6 +159,7 @@ void CameraConnection::on_bt_capture_clicked(){
     camera->unlock();
 
     ui->bt_return->setEnabled(true);
+    ui->bt_capture->setEnabled(false);
 }
 
 void CameraConnection::imageCaptured(int id, const QImage image){
