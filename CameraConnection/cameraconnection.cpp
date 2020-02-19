@@ -51,6 +51,18 @@ void CameraConnection::SetCbListCam(QList<QCameraInfo> &cams){
     ui->combo_selectDevice->addItems(camDescription);
 }
 
+bool CameraConnection::checkCameras(){
+
+    int numCameras = QCameraInfo::availableCameras().count();
+    if(numCameras > 0){
+        qDebug() << numCameras << "cameras detected." << endl;
+        return true;
+    } else {
+        qDebug() << "No cameras were detected." << endl;
+        return false;
+    }
+}
+
 void CameraConnection::on_bt_connect_clicked(){
     QByteArray myCamera;
 
@@ -119,8 +131,16 @@ void CameraConnection::on_bt_disconnect_clicked(){
     ui->lb_screen->setStyleSheet("QLabel{background-color:black}");
 }
 
-void CameraConnection::on_bt_capture_clicked(){
+void CameraConnection::on_bt_exit_clicked(){
+    QMessageBox::StandardButton resposta = QMessageBox::question(this, "Camera Connection", "Do you really want to close the application?", QMessageBox::Yes | QMessageBox::No);
+    if (resposta == QMessageBox::Yes){
+        QApplication::quit();
+        //close();
+    }
+}
 
+void CameraConnection::on_bt_capture_clicked(){
+    // Defining QImageCapture object
     imageCapture = new QCameraImageCapture(camera);
 
     connect(imageCapture, SIGNAL(imageCaptured(int, const QImage)), this, SLOT(imageCaptured(int, const QImage)));
@@ -141,26 +161,6 @@ void CameraConnection::on_bt_capture_clicked(){
     ui->bt_return->setEnabled(true);
 }
 
-void CameraConnection::on_bt_exit_clicked(){
-    QMessageBox::StandardButton resposta = QMessageBox::question(this, "Camera Connection", "Do you really want to close the application?", QMessageBox::Yes | QMessageBox::No);
-    if (resposta == QMessageBox::Yes){
-        QApplication::quit();
-        //close();
-    }
-}
-
-bool CameraConnection::checkCameras(){
-
-    int numCameras = QCameraInfo::availableCameras().count();
-    if(numCameras > 0){
-        qDebug() << numCameras << "cameras detected." << endl;
-        return true;
-    } else {
-        qDebug() << "No cameras were detected." << endl;
-        return false;
-    }
-}
-
 void CameraConnection::imageCaptured(int id, const QImage image){
     //imageCapture->cancelCapture();
     /*
@@ -177,7 +177,7 @@ void CameraConnection::imageCaptured(int id, const QImage image){
     ui->lb_screen->setPixmap(QPixmap::fromImage(image));
 }
 
-void CameraConnection::on_bt_play_clicked(){
+void CameraConnection::on_bt_record_clicked(){
     //ui->bt_return->setEnabled(true);
     if(!this->isPlaying){
         ui->bt_play->setText("Pause");
