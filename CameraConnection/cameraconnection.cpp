@@ -179,18 +179,24 @@ void CameraConnection::imageCaptured(int id, const QImage image){
 }
 
 void CameraConnection::on_bt_record_clicked(){
-    //ui->bt_return->setEnabled(true);
+    ui->bt_return->setEnabled(false);
+
     if(!this->isPlaying){
+        mediaRecorder = new QMediaRecorder(camera, this);
+        mediaRecorder->setOutputLocation(QUrl("..:/Videos/"));
+
+        mediaRecorder->record();
         ui->bt_record->setText("Pause");
         ui->bt_record->setIcon(QIcon(":/imgs/pause.png"));
         this->isPlaying = true;
     }else{
+        mediaRecorder->pause();
         ui->bt_record->setText("Record");
         ui->bt_record->setIcon(QIcon(":/imgs/play.png"));
         this->isPlaying = false;
     }
 
-    ui->statusBar->showMessage("Not implemented yet.");
+    ui->bt_stop->setEnabled(true);
 }
 
 void CameraConnection::on_bt_stop_clicked(){
