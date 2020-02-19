@@ -200,8 +200,13 @@ void CameraConnection::on_bt_record_clicked(){
 }
 
 void CameraConnection::on_bt_stop_clicked(){
+    ui->bt_return->setEnabled(false);
+    mediaRecorder->stop();
+
     ui->bt_record->setText("Record");
     ui->bt_record->setIcon(QIcon(":/imgs/play.png"));
+    this->isPlaying = false;
+
     ui->bt_record->setEnabled(true);
     ui->bt_stop->setEnabled(false);
 }
