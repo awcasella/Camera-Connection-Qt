@@ -6,7 +6,7 @@ App build in C++ with Qt Creator which detects and connect with all cameras avai
 
 # About this Project
 
-This app is build with pure C++ with the framework Qt Creator 5.12. 
+This app is built with pure C++ with the framework Qt Creator 5.12. 
 
 # Getting Started
 
